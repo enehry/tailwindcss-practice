@@ -1,7 +1,17 @@
-# Tailwind CSS Practice Project
+# Tailwind CSS Practice Project (Tailwind CSS v4)
 
-This repository is for **practicing Tailwind CSS** by cloning a given UI design.  
-Your goal is to **recreate the sample UI exactly** using **Tailwind CSS CLI and Node.js**.
+This repository is for **practicing Tailwind CSS v4** by cloning a provided UI design.  
+Your task is to **recreate the sample UI as close as possible** using **Node.js and Tailwind CSS v4 CLI**.
+
+---
+
+## 🖼 Sample UI (Reference)
+
+Below is the UI that you need to clone using Tailwind CSS.
+
+![Sample UI](./task-tailwind.png)
+
+> ⚠️ The goal is **visual accuracy** — layout, spacing, typography, colors, and responsiveness.
 
 ---
 
@@ -14,10 +24,12 @@ tailwindcss-practice/
 │   └── (7 iPhone images – use these assets in the UI)
 │
 ├── src/
-│   └── (place all your HTML files here)
+│   ├── index.html
+│   ├── input.css
+│   └── output.css
 │
 ├── task-tailwind.png
-│   └── (sample UI that you need to clone)
+│   └── (sample UI reference)
 │
 └── README.md
 ```
@@ -26,10 +38,11 @@ tailwindcss-practice/
 
 ## 🎯 Objective
 
-- Clone the UI design shown in **`task-tailwind.png`**
-- Use **Tailwind CSS (CLI)** only
-- Do **NOT** use any UI frameworks (Bootstrap, Material UI, etc.)
-- Focus on layout, spacing, typography, and responsiveness
+- Clone the UI shown in **`task-tailwind.png`**
+- Use **Tailwind CSS v4 (CLI)** only
+- Do **NOT** use other UI frameworks (Bootstrap, Material UI, etc.)
+- Apply responsive design principles
+- Use semantic HTML
 
 ---
 
@@ -38,7 +51,7 @@ tailwindcss-practice/
 Make sure you have the following installed:
 
 - **Node.js** (v18 or later recommended)
-- **npm** (comes with Node.js)
+- **npm**
 
 ---
 
@@ -61,91 +74,82 @@ npm init -y
 
 ---
 
-### 3️⃣ Install Tailwind CSS via CLI
+### 3️⃣ Install Tailwind CSS v4 (CLI)
 
 ```bash
-npm install -D tailwindcss
-npx tailwindcss init
+npm install -D tailwindcss @tailwindcss/cli
 ```
 
 ---
 
-### 4️⃣ Configure Tailwind
+### 4️⃣ Create Tailwind Input File
 
-Edit **`tailwind.config.js`**:
-
-```js
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: ["./src/**/*.{html,js}"],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-}
-```
-
----
-
-### 5️⃣ Create Tailwind Input File
-
-Create a CSS file (example: `src/input.css`):
+Create `src/input.css`:
 
 ```css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+```
+
+> Tailwind CSS v4 uses a **single import** instead of `@tailwind base/components/utilities`.
+
+---
+
+### 5️⃣ Create Your HTML File
+
+Create `src/index.html` and link the output CSS:
+
+```html
+<link href="./output.css" rel="stylesheet">
 ```
 
 ---
 
 ### 6️⃣ Build Tailwind CSS
 
-Run the Tailwind CLI build command:
+Run the Tailwind CLI:
 
 ```bash
 npx tailwindcss -i ./src/input.css -o ./src/output.css --watch
 ```
 
-This will generate `output.css` and automatically rebuild on changes.
+This command will:
+- Generate `output.css`
+- Watch for changes automatically
 
 ---
 
 ## 🧩 Development Guidelines
 
-- Place **HTML files inside the `src/` folder**
-- Link `output.css` in your HTML file
-- Use images from the `img/` folder
-- Match:
+- All HTML files must be inside the `src/` folder
+- Use images from the `img/` directory
+- Match the sample UI in terms of:
   - Layout
-  - Colors
-  - Font sizes
   - Spacing
+  - Colors
+  - Typography
   - Responsive behavior
 
 ---
 
 ## 📱 Assets
 
-- **`img/`** contains **7 iPhone images** you must use
-- **`task-tailwind.png`** is the **reference UI**
-
-⚠️ Pixel-perfect accuracy is encouraged.
+- **`img/`** → Contains **7 iPhone images**
+- **`task-tailwind.png`** → UI reference to clone
 
 ---
 
 ## 📌 Rules
 
-- ✅ Use Tailwind utility classes only  
-- ❌ No custom CSS (unless absolutely necessary)  
-- ❌ No external CSS frameworks  
-- ✅ Use semantic HTML  
+- ✅ Tailwind utility classes only
+- ❌ No custom CSS unless absolutely necessary
+- ❌ No external CSS frameworks
+- ✅ Semantic HTML required
 
 ---
 
 ## 📦 Optional NPM Script
 
-You may add this to `package.json`:
+Add this to your `package.json`:
 
 ```json
 "scripts": {
@@ -161,15 +165,16 @@ npm run dev
 
 ---
 
-## 🏁 Goal
+## 🏁 Learning Outcomes
 
-By completing this task, you should be comfortable with:
+By completing this exercise, you should be comfortable with:
 
-- Tailwind CSS utilities  
-- Responsive design  
-- Tailwind CLI workflow  
-- Translating UI designs into code  
+- Tailwind CSS v4 workflow
+- Utility-first styling
+- Responsive layouts
+- Translating UI designs into code
 
 ---
 
-Happy coding 🚀
+Happy coding 🚀  
+Practice. Observe. Improve.
