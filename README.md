@@ -1,7 +1,7 @@
 # Tailwind CSS Practice Project (Tailwind CSS v4)
 
-This repository is for **practicing Tailwind CSS v4** by cloning a provided UI design.  
-Your task is to **recreate the sample UI as close as possible** using **Node.js and Tailwind CSS v4 CLI**.
+This repository is for **practicing TailwindCSS v4** by cloning a provided UI design.  
+Your task is to **recreate the sample UI as close as possible** using **Node.js and TailwindCSS v4 CLI**.
 
 ---
 
@@ -19,19 +19,18 @@ Below is the UI that you need to clone using Tailwind CSS.
 
 ```
 tailwindcss-practice/
-│
-├── img/
-│   └── (7 iPhone images – use these assets in the UI)
-│
-├── src/
-│   ├── index.html
-│   ├── input.css
-│   └── output.css
-│
-├── task-tailwind.png
-│   └── (sample UI reference)
-│
-└── README.md
+├── node_modules/          # Dito nakalagay lahat ng installed libraries (npm install)
+├── public/                # Final output folder
+│   └── css/
+│       └── output.css       # Compiled CSS (Eto yung naka-link sa HTML)
+├── src/                   # Source folder (Dito ka mag-e-edit)
+│   ├── css/
+│   │   └── input.css       # Raw CSS na may @import "tailwindcss"
+│   └── img/               # Images folder
+│       ├── iphone-7.png
+│   └── index.html         # Main HTML file
+├── package.json           # Project manifest / metadata
+└── package-lock.json      # Version history ng mga installed packages
 ```
 
 ---
@@ -84,7 +83,7 @@ npm install -D tailwindcss @tailwindcss/cli
 
 ### 4️⃣ Create Tailwind Input File
 
-Create `src/input.css`:
+Create `src/css/input.css`:
 
 ```css
 @import "tailwindcss";
@@ -99,7 +98,7 @@ Create `src/input.css`:
 Create `src/index.html` and link the output CSS:
 
 ```html
-<link href="./output.css" rel="stylesheet">
+  <link href="../../public/css/output.css" rel="stylesheet">
 ```
 
 ---
@@ -109,10 +108,11 @@ Create `src/index.html` and link the output CSS:
 Run the Tailwind CLI:
 
 ```bash
-npx tailwindcss -i ./src/input.css -o ./src/output.css --watch
+npx tailwindcss -i ./src/css/input.css -o ./public/css/output.css --watch
 ```
 
 This command will:
+
 - Generate `output.css`
 - Watch for changes automatically
 
@@ -153,7 +153,7 @@ Add this to your `package.json`:
 
 ```json
 "scripts": {
-  "dev": "tailwindcss -i ./src/input.css -o ./src/output.css --watch"
+  "dev": "tailwindcss -i ./src/css/input.css -o ./public/css/output.css --watch"
 }
 ```
 
