@@ -98,7 +98,7 @@ Create `src/css/input.css`:
 Create `src/index.html` and link the output CSS:
 
 ```html
-  <link href="../../public/css/output.css" rel="stylesheet">
+  <link href="../public/css/output.css" rel="stylesheet">
 ```
 
 ---
